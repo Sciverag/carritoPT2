@@ -51,4 +51,11 @@ class CarroController extends Controller
         $carro->delete();
         return response()->json(null,200);
     }
+    public function destroyAll($id){
+        $carros = Carro::where('idUsuario',$id)->get();
+        foreach($carros as $carro){
+            $carro->delete();
+        }
+        return response()->json(null,200);
+    }
 }
