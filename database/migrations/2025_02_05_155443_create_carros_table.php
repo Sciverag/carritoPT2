@@ -17,6 +17,9 @@ class CreateCarrosTable extends Migration
             $table->id();
             $table->integer('nlinea');
             $table->integer('idProducto');
+            $table->string('nombre');
+            $table->string('foto');
+            $table->double('precio');
             $table->integer('cantidad');
             $table->integer('idUsuario');
             $table->timestamps();
