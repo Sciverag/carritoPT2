@@ -45,10 +45,10 @@ class CarroController extends Controller
         $carros = Carro::where('idUsuario',$id)->count();
         return response()->json($carros,200);
     }
-    public function update($idUsuario, $idProducto, $cantidad)
+    public function update(Request $request)
     {
-        $carro = Carro::where('idUsuario',$idUsuario)->where('idProducto',$idProducto)->first();
-        $carro->cantidad = $cantidad;
+        $carro = Carro::findOrFail($request->id);
+        $carro->cantidad = $request->cantidad;
         $carro->save();
         return response()->json($carro,201);
     }
